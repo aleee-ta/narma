@@ -11,6 +11,7 @@ fn help_command() {
     eprintln!("  diff [timestamp1] [timestamp2]  Check difference between ACIR's");
     eprintln!("  list                            List all available ACIR's");
     eprintln!("  clean                           Clean available cache");
+    eprintln!("  help                            Show help");
     
     return;
 }
