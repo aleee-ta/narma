@@ -125,6 +125,17 @@ fn list_command() {
     }
 }
 
+fn clean_command() {
+    let cache_dir = Path::new("./.narma-cache");
+    if !cache_dir.exists() {
+        eprintln!("Cache directory not found.");
+        return;
+    }
+
+    std::fs::remove_dir_all(cache_dir).unwrap();
+    std::fs::create_dir(cache_dir).unwrap();
+}
+
 fn main() {
     let args: Vec<String> = std::env::args().collect();
 
@@ -139,6 +150,7 @@ fn main() {
         "cache" => cache_command(&args[2..]),
         "diff" => diff_command(&args[2..]),
         "list" => list_command(),
+        "clean" => clean_command(),
         _ => help_command(),
     }
 }
